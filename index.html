@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Музыка на GitHub Pages</title>
+    <title>Музика на GitHub Pages</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,52 +34,52 @@
 </head>
 <body>
     <div class="player-container">
-        <h1>🎵 Музыкальный плеер</h1>
-        <p class="status" id="status">Загрузка...</p>
+        <h1>🎵 Музична пауза, танцюють ВСІ !!!</h1>
+        <p class="status" id="status">Завантаження...</p>
         
         <audio id="audioPlayer" controls loop>
             <source src="audio.mp3" type="audio/mpeg">
-            Ваш браузер не поддерживает аудио элементы
+            Ваш браузер не підтримує аудіо елементи
         </audio>
         
-        <p>Музыка запустится автоматически после загрузки</p>
+        <p>Музика запуститься автоматично після завантаження</p>
     </div>
 
     <script>
         const audio = document.getElementById('audioPlayer');
         const status = document.getElementById('status');
         
-        // События аудио
+        // Події аудіо
         audio.addEventListener('loadeddata', function() {
-            status.textContent = '✅ Файл загружен! Запуск...';
+            status.textContent = '✅ Файл завантажено! Запуск...';
             attemptPlay();
         });
         
         audio.addEventListener('play', function() {
-            status.textContent = '🎶 Сейчас играет...';
+            status.textContent = '🎶 Зараз грає...';
             status.style.color = '#4CAF50';
         });
         
         audio.addEventListener('error', function() {
-            status.textContent = '❌ Ошибка загрузки файла';
+            status.textContent = '❌ Помилка завантаження файлу';
             status.style.color = '#f44336';
         });
         
-        // Функция воспроизведения
+        // Функція відтворення
         function attemptPlay() {
             audio.play().then(() => {
-                console.log('Автовоспроизведение успешно!');
+                console.log('Автовідтворення успішне!');
             }).catch(error => {
-                status.innerHTML = '🔇 Браузер заблокировал автозапуск. <br><small>Кликни на кнопку play выше</small>';
+                status.innerHTML = '🔇 Браузер заблокував автозапуск. <br><small>Клікни на кнопку play вище</small>';
             });
         }
         
-        // Запуск при клике по странице
+        // Запуск при кліку по сторінці
         document.body.addEventListener('click', function() {
-            audio.play().catch(e => console.log('Нужно ручное воспроизведение'));
+            audio.play().catch(e => console.log('Потрібне ручне відтворення'));
         });
         
-        // Автозапуск через 2 секунды
+        // Автозапуск через 2 секунди
         setTimeout(attemptPlay, 2000);
     </script>
 </body>
